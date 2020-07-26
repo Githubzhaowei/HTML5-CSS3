@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>开课吧web全栈架构师四期</title>
+  </head>
+
+  <body>
+    <nav></nav>
+    <footer></footer>
+    <div>
+      <input type="file" name="" id="nameList" />
+    </div>
+
+    <script>
+      var nameList = document.getElementById("nameList");
+
+      nameList.onchange = () => {
+        console.log(nameList);
+        var reader = new FileReader();
+        reader.readAsText(nameList.files[0]);
+        reader.onload = () => {
+          document.body.append(reader.result);
+        };
+      };
+    </script>
+  </body>
+</html>
