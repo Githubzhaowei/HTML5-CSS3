@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>开课吧web全栈架构师四期</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>开课吧web全栈架构师四期</title>
+        <style>
+            nav {
+                height: 40px;
+                background-color: #4eeaf2d6;
+            }
 
-  <body>
-    <nav></nav>
-    <footer></footer>
-    <div>
-      <input type="file" name="" id="nameList" />
-    </div>
+            .file {
+                width: 30px;
+                height: 30px;
+                border: 1px solid red;
+                overflow: hidden;
+                background-color: chartreuse;
+            }
+            footer {
+            }
+        </style>
+    </head>
 
-    <script>
-      var nameList = document.getElementById("nameList");
-
-      nameList.onchange = () => {
-        console.log(nameList);
-        var reader = new FileReader();
-        reader.readAsText(nameList.files[0]);
-        reader.onload = () => {
-          document.body.append(reader.result);
-        };
-      };
-    </script>
-  </body>
+    <body>
+        <nav></nav>
+        <div class="file">
+            <input type="file" name="" id="nameList" />
+        </div>
+        <footer></footer>
+        <script>
+            var nameList = document.getElementById("nameList");
+            nameList.onchange = () => {
+                console.log(nameList);
+                var reader = new FileReader();
+                reader.readAsText(nameList.files[0]);
+                reader.onload = () => {
+                    document.body.append(reader.result);
+                };
+            };
+        </script>
+    </body>
 </html>
