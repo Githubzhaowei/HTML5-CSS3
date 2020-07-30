@@ -6,6 +6,8 @@
         <title>开课吧web全栈架构师四期</title>
         <style>
             nav {
+                margin: 0px;
+                padding: 0px;
                 height: 40px;
                 background-color: #4eeaf2d6;
             }
@@ -34,8 +36,8 @@
                 console.log(nameList);
                 var reader = new FileReader();
                 reader.readAsText(nameList.files[0]);
-                reader.onload = () => {
-                    document.body.append(reader.result);
+                reader.onload = (index) => {
+                    var 
                 };
             };
         </script>
