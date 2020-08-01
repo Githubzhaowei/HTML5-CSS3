@@ -7,6 +7,19 @@
         <style>
             div {
                 border: 1px solid black;
+                margin-bottom: 10px;
+            }
+            #nameList {
+                margin: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table,
+            td,
+            th {
+                border: 1px solid black;
             }
         </style>
     </head>
@@ -16,17 +29,34 @@
         <div class="file">
             <input type="file" name="" id="nameList" />
         </div>
-        <div>
-            <div>
-                <ul id="css"></ul>
-            </div>
-            <div>
-                <ul id="js"></ul>
-            </div>
-            <div>
-                <ul id="html"></ul>
-            </div>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        HTML1
+                    </th>
+                    <th>
+                        CSS
+                    </th>
+                    <th>
+                        JS
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul id="html"></ul>
+                    </td>
+                    <td>
+                        <ul id="css"></ul>
+                    </td>
+                    <td>
+                        <ul id="js"></ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <footer></footer>
         <script>
             const nameList = document.getElementById("nameList");
@@ -34,13 +64,35 @@
                 let cssPage = document.getElementById("css");
                 let jsPage = document.getElementById("js");
                 let htmlPage = document.getElementById("html");
-                
                 let reader = new FileReader();
                 reader.readAsText(nameList.files[0]);
-                reader.onload = (index) => {
+                reader.onload = () => {
                     const fileContent = reader.result;
-                    fileContent.split("\n\r").forEach((item) => {
-                        document.body.innerText(item + "\n" + "\r");
+                    fileContent.split("\n").forEach((item) => {
+                        let li = document.createElement("li");
+                        if (
+                            item &&
+                            item.split(".")[1].replace("\r", "") === "html"
+                        ) {
+                            console.log(item.split("\\"));
+                            switch (item.split("\\")[2]) {
+                                case "html":
+                                    li.innerText = item.split("\\")[3];
+                                    htmlPage.appendChild(li);
+                                    break;
+                                case "css":
+                                    li.innerText = item.split("\\")[3];
+                                    s;
+                                    cssPage.appendChild(li);
+                                    break;
+                                case "js":
+                                    li.innerText = item.split("\\")[3];
+                                    htmlPage.appendChild(li);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
                     });
                 };
             };

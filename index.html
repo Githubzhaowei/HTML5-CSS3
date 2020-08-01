@@ -28,28 +28,13 @@
 
     <body>
         <nav></nav>
-        <div class="file">
-            <input type="file" name="" id="nameList" />
-        </div>
+
         <div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <video src="./ds.mp4" controls autoplay></video>
         </div>
         <footer></footer>
         <script>
-            const nameList = document.getElementById("nameList");
-            nameList.onchange = () => {
-                let reader = new FileReader();
-                reader.readAsText(nameList.files[0]);
-                reader.onload = (index) => {
-                    const fileContent = reader.result;
-                    console.log(fileContent);
-                    fileContent.split("\n").forEach((item) => {
-                        console.log(item);
-                    });
-                };
-            };
+            const
         </script>
     </body>
 </html>
