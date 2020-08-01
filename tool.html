@@ -5,23 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>开课吧web全栈架构师四期</title>
         <style>
-            nav {
-                margin: 0px;
-                padding: 0px;
-                height: 40px;
-                background-color: #4eeaf2d6;
-            }
             div {
                 border: 1px solid black;
-            }
-            .file {
-                width: 30px;
-                height: 30px;
-                border: 1px solid red;
-                overflow: hidden;
-                background-color: chartreuse;
-            }
-            footer {
             }
         </style>
     </head>
@@ -32,21 +17,30 @@
             <input type="file" name="" id="nameList" />
         </div>
         <div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div>
+                <ul id="css"></ul>
+            </div>
+            <div>
+                <ul id="js"></ul>
+            </div>
+            <div>
+                <ul id="html"></ul>
+            </div>
         </div>
         <footer></footer>
         <script>
             const nameList = document.getElementById("nameList");
             nameList.onchange = () => {
+                let cssPage = document.getElementById("css");
+                let jsPage = document.getElementById("js");
+                let htmlPage = document.getElementById("html");
+                
                 let reader = new FileReader();
                 reader.readAsText(nameList.files[0]);
                 reader.onload = (index) => {
                     const fileContent = reader.result;
-                    console.log(fileContent);
-                    fileContent.split("\n").forEach((item) => {
-                        console.log(item);
+                    fileContent.split("\n\r").forEach((item) => {
+                        document.body.innerText(item + "\n" + "\r");
                     });
                 };
             };
