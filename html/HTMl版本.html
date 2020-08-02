@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>HTML版本</title>
         <style>
             div {
                 margin: 10px;
@@ -12,15 +12,34 @@
             pre {
                 border: 1px dashed black;
                 padding: 10px;
+                word-break: normal;
+                white-space: pre-wrap;
             }
-
             pre:hover {
                 background-color: blanchedalmond;
+            }
+            @media screen and (min-width: 920px) {
+                pre {
+                    width: 870px;
+                }
             }
         </style>
     </head>
     <body>
         <div>
+            <h3>HTML5</h3>
+            <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8" /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+            </pre>
+
             <h3>HTML4严格版</h3>
             <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/<span style="color: red;">strict</span>.dtd"&gt;
@@ -47,19 +66,6 @@
 &lt;/html&gt;
             </pre>
 
-            <h3>HTML1松散版</h3>
-            <pre>
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/<span style="color: red;">xhtml1-transitional</span>.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
-    &lt;head&gt;
-        &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/&gt;
-        &lt;title&gt;Document&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-            </pre>
-
             <h3>HTML1严格版</h3>
             <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/<span style="color: red;">xhtml1-strict</span>.dtd"&gt;
@@ -73,18 +79,22 @@
 &lt;/html&gt;
             </pre>
 
-            <h3>HTML5</h3>
+            <h3>HTML1松散版</h3>
             <pre>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/<span style="color: red;">xhtml1-transitional</span>.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
     &lt;head&gt;
-        &lt;meta charset="UTF-8" /&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/&gt;
         &lt;title&gt;Document&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
     &lt;/body&gt;
 &lt;/html&gt;
             </pre>
+        </div>
+
+        <div>
+            
         </div>
     </body>
 </html>
