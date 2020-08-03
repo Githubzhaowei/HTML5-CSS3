@@ -6,25 +6,22 @@
         <title>开课吧web全栈架构师四期</title>
         <style>
             nav {
-                margin: 0px;
-                padding: 0px;
                 height: 40px;
                 background-color: #94e5e9d6;
                 display: flex;
+                margin: 10px;
             }
             nav div {
-                display: table-cell !important;
-                width: 33.3333333%;
-                vertical-align: bottom;
+                width: 33.33333%;
                 text-align: center;
+                padding: 8px;
+                border: 1px solid black;
             }
-            nav span {
-                display: block;
-            }
-            footer {
+            #menu {
+                border: 1px solid black;
+                padding: 10px;
             }
             div {
-                border: 1px solid black;
             }
             @media screen and (min-width: 1500px) {
             }
@@ -33,29 +30,57 @@
 
     <body>
         <nav>
-            <div>
-                <span>
-                    HTML
-                </span>
+            <div id="html">
+                HTML
             </div>
-            <div>
-                <span>
-                    CSS
-                </span>
+            <div id="css">
+                CSS
             </div>
-            <div>
-                <span>
-                    JS
-                </span>
+            <div id="js">
+                JS
             </div>
         </nav>
-        <div>
-            <a href="./html/HTML5基础.html">HTML5基础</a>
-            <a href="./html/HTMl版本.html">HTMl版本</a>
+        <div id="menu">
+            <ul></ul>
         </div>
-        <footer></footer>
         <script>
-            const
+            const htmlList = ["HTML5面试", "HTMl版本"];
+            const cssList = [];
+            const jsList = [];
+            var menu = document.querySelector("#menu");
+            var html = document.getElementById("html");
+            var css = document.getElementById("css");
+            var js = document.getElementById("js");
+            // var li = document.createElement("li");
+            // var a = document.createElement("a");
+            var menuList = document.querySelector("#menu ul");
+            html.addEventListener("click", function () {
+                var path = "html";
+                htmlList.forEach((item) => {
+                    showMenu(item, path);
+                });
+            });
+            css.addEventListener("click", () => {
+                var path = "css";
+                cssList.forEach((item) => {
+                    showMenu(item, path);
+                });
+            });
+            js.addEventListener("click", () => {
+                var path = "js";
+                jsList.forEach((item) => {
+                    showMenu(item, path);
+                });
+            });
+
+            showMenu = (pageName, pathName) => {
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.href = "./" + pathName + "/" + pageName + ".html";
+                a.innerText = pageName;
+                li.appendChild(a);
+                menuList.appendChild(li);
+            };
         </script>
     </body>
 </html>
