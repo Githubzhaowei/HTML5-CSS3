@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <title>开课吧web全栈架构师四期</title>
         <style>
             nav {
                 height: 40px;
                 background-color: #94e5e9d6;
                 display: flex;
-                margin: 10px;
+                margin-bottom: 10px;
             }
             nav div {
                 width: 33.33333%;
@@ -17,13 +18,11 @@
                 padding: 8px;
                 border: 1px solid black;
             }
+            nav div:hover {
+                background-color: #94e9d5d6;
+            }
             #menu {
                 border: 1px solid black;
-                padding: 10px;
-            }
-            div {
-            }
-            @media screen and (min-width: 1500px) {
             }
         </style>
     </head>
@@ -47,26 +46,27 @@
             const htmlList = ["HTML5面试", "HTMl版本"];
             const cssList = [];
             const jsList = [];
-            var menu = document.querySelector("#menu");
             var html = document.getElementById("html");
             var css = document.getElementById("css");
             var js = document.getElementById("js");
-            // var li = document.createElement("li");
-            // var a = document.createElement("a");
             var menuList = document.querySelector("#menu ul");
+
             html.addEventListener("click", function () {
+                menuList.innerHTML = "";
                 var path = "html";
                 htmlList.forEach((item) => {
                     showMenu(item, path);
                 });
             });
             css.addEventListener("click", () => {
+                menuList.innerHTML = "";
                 var path = "css";
                 cssList.forEach((item) => {
                     showMenu(item, path);
                 });
             });
             js.addEventListener("click", () => {
+                menuList.innerHTML = "";
                 var path = "js";
                 jsList.forEach((item) => {
                     showMenu(item, path);
@@ -81,6 +81,13 @@
                 li.appendChild(a);
                 menuList.appendChild(li);
             };
+
+            (function () {
+                var path = "html";
+                htmlList.forEach((item) => {
+                    showMenu(item, path);
+                });
+            })();
         </script>
     </body>
 </html>
