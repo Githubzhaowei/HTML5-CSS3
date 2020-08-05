@@ -19,25 +19,19 @@
             pre:hover {
                 background-color: blanchedalmond;
             }
-            @media screen and (max-width: 920px) {
-                pre {
-                    width: 870px;
-                }
-            }
             @media screen and (min-width: 920px) {
-                pre {
+                .contantWidth {
+                    margin: auto;
                     width: 870px;
-                }
-                body {
-                    display: flex;
                 }
             }
         </style>
     </head>
     <body>
         <div>
-            <h3>HTML5</h3>
-            <pre>
+            <div class="contantWidth">
+                <h3>HTML5</h3>
+                <pre>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -47,10 +41,11 @@
 &lt;body&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-            </pre>
+            </pre
+                >
 
-            <h3>HTML4严格版</h3>
-            <pre>
+                <h3>HTML4严格版</h3>
+                <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/<span style="color: red;">strict</span>.dtd"&gt;
 &lt;html lang="en"&gt;
     &lt;head&gt;
@@ -62,8 +57,8 @@
 &lt;/html&gt;
             </pre>
 
-            <h3>HTML4松散版</h3>
-            <pre>
+                <h3>HTML4松散版</h3>
+                <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/<span style="color: red;">loose</span>.dtd"&gt;
 &lt;html lang="en"&gt;
     &lt;head&gt;
@@ -75,8 +70,8 @@
 &lt;/html&gt;
             </pre>
 
-            <h3>HTML1严格版</h3>
-            <pre>
+                <h3>HTML1严格版</h3>
+                <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/<span style="color: red;">xhtml1-strict</span>.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
     &lt;head&gt;
@@ -88,8 +83,8 @@
 &lt;/html&gt;
             </pre>
 
-            <h3>HTML1松散版</h3>
-            <pre>
+                <h3>HTML1松散版</h3>
+                <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/<span style="color: red;">xhtml1-transitional</span>.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
     &lt;head&gt;
@@ -100,8 +95,7 @@
     &lt;/body&gt;
 &lt;/html&gt;
             </pre>
+            </div>
         </div>
-
-        <div>HTML面试</div>
     </body>
 </html>
