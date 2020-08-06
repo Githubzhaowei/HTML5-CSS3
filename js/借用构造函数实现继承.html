@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>借用构造函数实现继承</title>
+    </head>
+    <body>
+        <script>
+            function Animal(name, age, gemder) {
+                this.name = name;
+                this.age = age;
+                this.gemder = gemder;
+            }
+
+            function Person(name, age, gender, say) {
+                //这种函数调用方式，this指向windows;
+                // Animal(name, age, gender);
+                Animal.call(this, name, age, gender);
+                Animal.apply(this, [name, age, gender]);
+                this.say = function () {};
+            }
+
+            var p1 = new Person("宋小宝", 15, "男", function () {});
+        </script>
+    </body>
+</html>
