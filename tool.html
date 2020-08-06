@@ -65,6 +65,9 @@
                 let jsPage = document.getElementById("js");
                 let htmlPage = document.getElementById("html");
                 let reader = new FileReader();
+                var htmlList = '"';
+                var cssList = '"';
+                var jsList = '"';
                 reader.readAsText(nameList.files[0]);
                 reader.onload = () => {
                     const fileContent = reader.result;
@@ -74,26 +77,41 @@
                             item &&
                             item.split(".")[1].replace("\r", "") === "html"
                         ) {
-                            console.log(item.split("\\"));
                             switch (item.split("\\")[2]) {
                                 case "html":
-                                    li.innerText = item.split("\\")[3];
+                                    var tag = item
+                                        .split("\\")[3]
+                                        .replace(".html", "");
+                                    htmlPage.appendChild(li);
+                                    htmlList += tag + '","';
+                                    li.innerText = tag;
                                     htmlPage.appendChild(li);
                                     break;
                                 case "css":
-                                    li.innerText = item.split("\\")[3];
-                                    s;
+                                    var tag = item
+                                        .split("\\")[3]
+                                        .replace(".html", "");
+                                    li.innerText = tag;
+                                    cssList += tag + '","';
                                     cssPage.appendChild(li);
+
                                     break;
                                 case "js":
-                                    li.innerText = item.split("\\")[3];
-                                    htmlPage.appendChild(li);
+                                    var tag = item
+                                        .split("\\")[3]
+                                        .replace(".html", "");
+                                    li.innerText = tag;
+                                    jsList += tag + '","';
+                                    jsPage.appendChild(li);
                                     break;
                                 default:
                                     break;
                             }
                         }
                     });
+                    console.log("html: " + htmlList);
+                    console.log("css: " + cssList);
+                    console.log("js: " + jsList);
                 };
             };
         </script>
