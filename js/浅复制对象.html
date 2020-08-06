@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>浅复制对象</title>
+        <style>
+            section {
+                display: flex;
+            }
+
+            .exam {
+                width: 33.33333%;
+                border: 1px dashed black;
+            }
+
+            button {
+                display: block;
+                margin: auto;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <div class="exam">
+                <h3>js直等,会覆盖</h3>
+                <pre>
+var o1 = {
+    name: "小王",
+    age: "18",
+};
+
+var o2 = {};
+o2 = o1;
+o2.name = "小李";
+o2.age = "20";
+console.log(o1);
+console.log(o2);                    
+                </pre>
+                <div>
+                    <button onclick="fun1()">演示</button>
+                </div>
+            </div>
+            <div class="exam">
+                <h3>js原生，浅复制</h3>
+                <pre>
+function extend(source, target) {
+    for (var key in source) {
+        target[key] = source[key];
+    }
+}
+
+var o1 = {
+    name: "小王",
+    age: "18",
+};
+
+var o2 = {};
+extend(o1, o2);
+o2.name = "小李";
+o2.age = "20";
+console.clear();
+console.log(o1);
+console.log(o2);
+                </pre>
+                <div>
+                    <button onclick="fun2()">演示</button>
+                </div>
+            </div>
+            <div class="exam">
+                <h3>ES6方法，浅拷贝</h3>
+                <pre>
+var o1 = {
+    name: "小王",
+    age: "18",
+};
+var o2 = { ...o1, name: "小李", age: "21" };
+console.clear();
+console.log(o1);
+console.log(o2);
+                </pre>
+                <div>
+                    <button onclick="fun3()">演示</button>
+                </div>
+            </div>
+        </section>
+        <script>
+            //js直等,会覆盖
+            function fun1() {
+                var o1 = {
+                    name: "小王",
+                    age: "18",
+                };
+                var o2 = {};
+                o2 = o1;
+                o2.name = "小李";
+                o2.age = "20";
+                console.clear();
+                console.log(o1);
+                console.log(o2);
+            }
+
+            //js原生方法，浅拷贝
+            function fun2() {
+                function extend(source, target) {
+                    for (var key in source) {
+                        target[key] = source[key];
+                    }
+                }
+                var o1 = {
+                    name: "小王",
+                    age: "18",
+                };
+                var o2 = {};
+                extend(o1, o2);
+                o2.name = "小李";
+                o2.age = "20";
+                console.clear();
+                console.log(o1);
+                console.log(o2);
+            }
+
+            //ES6方法，浅拷贝,等价于fun2
+            function fun3() {
+                var o1 = {
+                    name: "小王",
+                    age: "18",
+                };
+                var o2 = { ...o1, name: "小李", age: "21" };
+                console.clear();
+                console.log(o1);
+                console.log(o2);
+            }
+        </script>
+    </body>
+</html>
