@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //查看作用域上一级，不是看函数在哪里调用，而是看函数在哪里写
+            //js是词法作用域
+            //闭包作用保护变量不被污染
+            // function fn() {
+            //     var age = 18;
+            //     return function () {
+            //         age++;
+            //         console.log(age);
+            //     };
+            // }
+
+            // var f1 = fn();
+
+            // var f2 = fn();
+
+            // console.log(f1 == f2); //false
+
+            //释放闭包，释放内存
+            // f1 = null;
+
+            // function q2() {
+            //     var a = {};
+            //     return function () {
+            //         return a;
+            //     };
+            // }
+
+            // var t3 = q2;
+            // var o6 = t3();
+            // var o5 = t3();
+            // console.log(o5 == o6);
+
+            // var w3 = q2();
+            // var o8 = w3();
+            // console.log(w3 == o8);
+
+            var length = 21;
+            function f1() {
+                console.log(this.length);
+            }
+
+            f1.call([1, 3, 5]);
+            f1.apply(this);
+            f1.call(5);
+        </script>
+    </body>
+</html>

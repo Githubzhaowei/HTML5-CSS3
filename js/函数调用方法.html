@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            函数（function）是一段代码，需要通过名字来进行调用。它能将一些数据（函数的参数）传递进去进行处理，然后返回一些数据（函数的返回值），也可以不返回数据。
+            方法（method）是通过对象调用的javascript函数。也就是说，方法也是函数，只是比较特殊的函数。
+            当将函数和对象和写在一起时，函数（function）就变成了方法（method）。
+        </p>
+        <script>
+            //函数第一种调用方式：函数调用， 调用时，this指向windows
+
+            // var name = "张三";
+            // function f1() {
+            //     console.log(name);
+            //     var name = "abc";
+            // }
+            // f1(); //结果为undefined
+
+            // var name = "张三";
+            // function f1() {
+            //     return {
+            //         say: function () {
+            //             console.log(name);
+            //             var name = "abc";
+            //         },
+            //     };
+            // }
+            // var fn = f1();
+            // fn.say();
+
+            // var add = function (a, b) {
+            //     alert(this);
+            //     return a + b;
+            // };
+
+            // add(3, 4);
+
+            function jQuery() {
+                var _init = jQuery.prototype.init;
+                return new _init();
+            }
+
+            (function () {
+                console.log(a);
+            })();
+
+            jQuery.prototype = {
+                constructor: jQuery,
+                length: 100,
+                init: function () {
+                    console.log(this.length);
+                },
+            };
+
+            var a = 123;
+            var $init = jQuery.prototype.init;
+            $init.prototype = jQuery.prototype;
+
+            jQuery();
+        </script>
+    </body>
+</html>
