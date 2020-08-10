@@ -1,10 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+    <body>
+        <script>
+            var s1 = `hello`;
+            var s2 = "hello";
+            var s3 = " a" + s1 + " b" + s2;
+            //es6的模板字符串
+            var s4 = ` a ${s1} b ${s2}`;
+
+            var s5 = `<div>
+                            <p>
+                                <span>123</span>
+                            </p>
+
+                        </div>`;
+            console.log(s5);
+
+            var obj = { name: "abc", age: 18 };
+            //用解构赋值方法取name、age
+            let { name } = obj;
+            console.log(name);
+
+            let { age } = obj;
+            console.log(age);
+
+            var obj3 = {
+                gender: "abc",
+                heigth: 18,
+                grade: "一年级",
+            };
+            //创建了gender、height、grade三个变量并给他们赋值为obj中的属性
+            var { gender, height, grade } = obj;
+
+            //解构赋值的意义
+            function fn(option) {}
+
+            fn({
+                width: 100,
+                height: 100,
+                age: 50,
+            });
+
+            function fn_2({ width, height, age }) {}
+
+            fn_2({
+                width: 100,
+                height: 100,
+                age: 50,
+            });
+
+            //解构赋值的其他用法
+            var obj = { name: "张三", age: 18 };
+            //创建了objName、objAge并赋值为obj.name、obj.age
+            var { name: objName, age: objAge } = obj;
+
+            // 属性的简写
+            var a = 3;
+            var c = 10;
+            var b = { a, c };
+            console.log(b);
+            var a = 4;
+            console.log(b);
+
+            // es6内部不能使用arguments,为了弥补这个问题，rest参数应运而生
+            // 产生一个变量，这个变量是一个数组，数组里包含了这个函数所传的实参
+            function q(...args /*rest*/) {
+                console.log(args instanceof Array);
+                console.log(Object.prototype.toString.call(args));
+
+                console.log(Array.isArray(args));
+                console.log(args);
+            }
+
+            // typeof只能判断数字、字符串、布尔值、undefined、函数
+            // `Object.proptype.toString.call()`能判断更多，建议使用
+
+            q(1, 2, 3);
+
+            function f(...args) {
+                console.log(args instanceof Array);
+                console.log(Object.prototype.toString().call(args));
+            }
+
+            var p = {
+                age: 18,
+                //es6方法简写，箭头函数中的this会指向外部函数作用域
+                run: () => {
+                    setTimeout(
+                        (() => {
+                            console.log(this); //this指向window,因为箭头函数会找外层，外层也是箭头还会找外层
+                            console.log(this.age);
+                        }).bind(this)
+                    ),
+                        100;
+                },
+                say() {
+                    setTimeout(() => {
+                        console.log(this); //this指向p，与第三种方式相同
+                        console.log(this.age);
+                    }, 100);
+                },
+                travel: function () {
+                    setTimeout(() => {
+                        console.log(this); //this指向p
+                        console.log(this.age);
+                    }, 100);
+                },
+            };
+
+            p.run();
+            p.travel();
+            p.say();
+
+            //箭头函数不能当作构造函数
+            //不能使用argument，用rest参数代替
+            //不可以使用yield命令，因此箭头函数不能使用Generator函数。现在Generator函数经常使用async代替
+            //箭头函数不能决定this的值，而匿名函数和具名函数可以决定this。
+            //babel可以将任意版本ES转换为任意旧版本ES，兼容哪些浏览器，或者指定版本。
+        </script>
+    </body>
 </html>
