@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Promise用于解决回掉地狱
+
+
+        //地狱回掉
+        // $.get("/getUser", function (res) {
+        //     $.get("/getUserDetial", function () {})
+
+        // })
+
+
+        //把异步操作封装在一个Promise对象中
+        function fn() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('你好');
+                    //异步逻辑到这里已经完成，在这了可以告诉外界函数执行完成
+                }, 1000)
+            })
+        }
+
+        fn().then(res => {
+            console.log("下一步");
+            fn().then(res => {
+                console.log("执行第二步");
+            })
+        })
+
+        function f1() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                        console.log("第一部");
+                        //一个标记告诉外界法方执行完，进行下一步
+                        resolve();
+                    },
+                    1000)
+            })
+        }
+
+        function f2() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                        console.log("第二部");
+                        resolve();
+                    },
+                    1000)
+            })
+        }
+
+        f1().then(res => {
+            return f2();
+        }).then(res => {
+            setTimeout(() => {
+                console.log("完成");
+            })
+        })
+
+
+
+        function getUser() {
+            return new Promise(resolve => {
+                $.get("/getUser", res => {
+                    //res是从服务器中接收道的数据
+                    //把数据传到下一步并告诉外部已经执行完成
+                    resolve(res);
+                })
+            })
+        }
+
+        getUser().then(res => {
+            //res就表示上一个异步操作返回的参数值：从服务器中取得的数据
+        })
+
+
+        function getBooks(){
+            return new Promise(resolve=> {
+                $.ajax
+            })
+        }
+    </script>
+</body>
+
+</html>
