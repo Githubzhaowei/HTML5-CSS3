@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 两个代码等价
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            var p1 = new Person("小李", 8);
+
+            class Student {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+            }
+
+            var s1 = new Student("小王", 88);
+        </script>
+    </body>
+</html>
