@@ -4,6 +4,15 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<style>
+			.po {
+				color: red;
+			}
+
+			.active {
+				color: green;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="app">
@@ -18,8 +27,8 @@
 			var a = new Vue({
 				el: "#app",
 				template: `
-                <div id="app" v-text="msg"></div>
-                `,
+                      <div id="app" v-text="msg"></div>
+                      `,
 				data() {
 					return {
 						msg: "指令系统",
@@ -31,9 +40,9 @@
 			var b = new Vue({
 				el: "#app",
 				template: `
-                    <!--一定要有跟标签-->
-                    <div id="app" v-html="msg2"></div>
-                `,
+                          <!--一定要有跟标签-->
+                          <div id="app" v-html="msg2"></div>
+                      `,
 				data() {
 					return {
 						msg: "指令系统",
@@ -51,22 +60,32 @@
 			new Vue({
 				el: "#app",
 				template: `
-                    <div>
-                        <div v-html='msg2'></div>
-                        <div v-if='isShow'>哈哈哈</div>
-                        <div v-show='iShow'>hha</div>
-                        <div v-if="Math.random()>0.5">此值大于0.5</div>
-                        <div v-else-if="Math.random()==0.5">此值等于0.5</div>
-                        <div v-else="Math.random()<0.5">此值小于0.5</div>
-                        <ul>
-							<li v-for = 'item in menuList'>
-								<h3>{{ item.id }}</h3>
-								<h5>{{ item.name }}</h5>
-								<h5>{{ item.price }}</h5>
-							</li>
-						</ul>
-                    </div>
-                `,
+                          <div>
+								<div v-html="msg2"></div>
+								<div v-if="isShow">哈哈哈</div>
+								<div v-show="iShow">hha</div>
+								<div v-if="Math.random()>0.5">此值大于0.5</div>
+								<div v-else-if="Math.random()==0.5">此值等于0.5</div>
+								<div v-else="Math.random()<0.5">此值小于0.5</div>
+								<ul>
+									<li v-for="(item,index) in menuList">
+										<h3 v-bind:id=" index ">{{ item.id }}</h3>
+										<h5>{{ item.name }}</h5>
+										<h5>{{ item.price }}</h5>
+									</li>
+								</ul>
+								<ul>
+									<li v-for="(value,key) in object">
+										{{ key }} -- {{ value }}
+									</li>
+								</ul>
+								<div>
+									<p class="po" v-bind:class="{active:isRed}">bing绑定</p>
+									<button v-on:click="isRed=!isRed">切换字体颜色</button>
+									<button v-on:click="changeColor">切换字体颜色</button>
+								</div>
+							</div>
+                      `,
 				data() {
 					return {
 						msg: "指令系统",
@@ -75,21 +94,32 @@
 						menuList: [{
 								id: 1,
 								name: "1",
-								price: 60
+								price: 60,
 							},
 							{
 								id: 2,
 								name: "2",
-								price: 70
+								price: 70,
 							},
 							{
 								id: 3,
 								name: "3",
-								price: 80
+								price: 80,
 							},
 						],
+						object: {
+							name: "涂sir",
+							age: 18,
+							fav: "唱歌",
+						},
+						isRed: false,
 					};
 				},
+				methods: {
+					changeColor() {
+						this.isRed = !this.isRed
+					}
+				}
 			});
 		</script>
 	</body>
