@@ -75,13 +75,22 @@
                 },
                 computed: {
                     // setter getter
-                    getCurrentSongSrc() {
-                        return this.musicData[this.currentIndex].songSrc;
+                    // getCurrentSongSrc() {
+                    //     return
+                    // },
+                    getCurrentSongSrc: {
+                        set(newV) {
+                            console.log(newV);
+                            this.currentIndex = newV;
+                        },
+                        get() {
+                            return this.musicData[this.currentIndex].songSrc;
+                        },
                     },
                 },
                 methods: {
                     clickHandler(index) {
-                        this.currentIndex = index;
+                        this.getCurrentSongSrc = index;
                     },
                 },
             });
