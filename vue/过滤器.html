@@ -6,7 +6,45 @@
         <title>Document</title>
     </head>
     <body>
+        <div id="app"></div>
+
         <script src="../vue.js"></script>
-        <script></script>
+        <script>
+            // 对数据进行加工
+            Vue.filter("myReverse", function (values, arg1) {
+                return arg1 + " " + values.split("").reverse().join("");
+            });
+
+            var App = {
+                template: `
+                    <div>
+                        <input type="text" name="price" v-model="price" />
+                        <h3>{{ price | myCurrentcy("111") }}</h3>
+                        <h4>{{ msg | myReverse("haha") }}</h4>
+                    </div>
+                `,
+                data() {
+                    return {
+                        price: 0,
+                        msg: "hello filter",
+                    };
+                },
+                filters: {
+                    myCurrentcy: function (arg, value) {
+                        return arg + "￥" + value;
+                    },
+                },
+            };
+
+            new Vue({
+                el: "#app",
+                template: `
+                    <App　/>
+                `,
+                components: {
+                    App,
+                },
+            });
+        </script>
     </body>
 </html>
