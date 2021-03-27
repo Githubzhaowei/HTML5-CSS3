@@ -2,92 +2,31 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <title>前端资料整理</title>
-        <style>
-            nav {
-                height: 40px;
-                background-color: #94e5e9d6;
-                display: flex;
-                margin-bottom: 10px;
-            }
-            nav div {
-                width: 33.33333%;
-                text-align: center;
-                padding: 8px;
-                border: 1px solid black;
-            }
-            nav div:hover {
-                background-color: #94e9d5d6;
-            }
-            #menu {
-                border: 1px solid black;
-            }
-        </style>
+        <title>面试知识汇总</title>
+        <link rel="stylesheet" href="/main/main.css" />
     </head>
-
     <body>
-        <nav>
-            <div id="html">
-                HTML
+        <div class="header">
+            <div id="time" class="time"></div>
+            <div class="list">
+                <div id="" class="menu">html</div>
+                <div id="" class="menu">css</div>
+                <div id="" class="menu">js</div>
             </div>
-            <div id="css">
-                CSS
-            </div>
-            <div id="js">
-                JS
-            </div>
-        </nav>
-        <div id="menu">
-            <ul></ul>
         </div>
-        <script>
-            const htmlList = ["HTML5基础", "HTMl版本", "input标签"];
-            const cssList = [];
-            const jsList = ["js数组", "对象原型", "浅复制对象"];
-            var html = document.getElementById("html");
-            var css = document.getElementById("css");
-            var js = document.getElementById("js");
-            var menuList = document.querySelector("#menu ul");
-
-            html.addEventListener("click", function () {
-                menuList.innerHTML = "";
-                var path = "html";
-                htmlList.forEach((item) => {
-                    showMenu(item, path);
-                });
-            });
-            css.addEventListener("click", () => {
-                menuList.innerHTML = "";
-                var path = "css";
-                cssList.forEach((item) => {
-                    showMenu(item, path);
-                });
-            });
-            js.addEventListener("click", () => {
-                menuList.innerHTML = "";
-                var path = "js";
-                jsList.forEach((item) => {
-                    showMenu(item, path);
-                });
-            });
-
-            showMenu = (pageName, pathName) => {
-                var li = document.createElement("li");
-                var a = document.createElement("a");
-                a.href = "./" + pathName + "/" + pageName + ".html";
-                a.innerText = pageName;
-                li.appendChild(a);
-                menuList.appendChild(li);
-            };
-
-            (function () {
-                var path = "html";
-                htmlList.forEach((item) => {
-                    showMenu(item, path);
-                });
-            })();
-        </script>
+        <div class="main">
+            <div class="nav" id="nav"></div>
+            <div class="contain"></div>
+        </div>
+        <div class="footer"></div>
     </body>
+    <script src=""></script>
+    <script>
+        var time = document.getElementById('time');
+        var showTime = setInterval(() => {
+            time.innerText = new Date().toLocaleTimeString();
+        }, 1000);
+    </script>
 </html>
