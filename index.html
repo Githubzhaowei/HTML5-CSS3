@@ -10,6 +10,7 @@
     <body>
         <div class="header">
             <div id="time" class="time"></div>
+            <hr />
             <div class="list">
                 <div onclick="menuSelect('html')" class="menu">html</div>
                 <div onclick="menuSelect('css')" class="menu">css</div>
@@ -25,8 +26,13 @@
     <script src=""></script>
     <script>
         var time = document.getElementById('time');
+        time.innerText = new Date().toLocaleTimeString();
         var showTime = setInterval(() => {
             time.innerText = new Date().toLocaleTimeString();
         }, 1000);
+        function menuSelect(tab) {
+            let selTab = document.getElementById(tab);
+            selTab.style.backgroundColor = '#999999';
+        }
     </script>
 </html>
