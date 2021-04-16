@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
 }
-#html,
+html,
 body {
     width: 100vw;
     height: 100vh;
@@ -34,6 +34,7 @@ body {
 }
 .menu {
     width: 80px;
+    height: 100%;
     text-align: center;
     color: #ffffff;
     font-weight: 400;
@@ -43,6 +44,9 @@ body {
 }
 .menu:hover {
     background-color: #666666;
+}
+.menu.active {
+    background-color: #999;
 }
 .main {
     height: calc(100% - 170px);

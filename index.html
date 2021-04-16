@@ -12,9 +12,9 @@
             <div id="time" class="time"></div>
             <hr />
             <div class="list">
-                <div onclick="menuSelect('html')" class="menu">html</div>
-                <div onclick="menuSelect('css')" class="menu">css</div>
-                <div onclick="menuSelect('js')" class="menu">js</div>
+                <div id="html" onclick="menuSelect('html')" class="menu">html</div>
+                <div id="css" onclick="menuSelect('css')" class="menu">css</div>
+                <div id="js" onclick="menuSelect('js')" class="menu">js</div>
             </div>
         </div>
         <div class="main">
@@ -32,7 +32,10 @@
         }, 1000);
         function menuSelect(tab) {
             let selTab = document.getElementById(tab);
-            selTab.style.backgroundColor = '#999999';
+            selTab.classList.add('active');
         }
+        (function () {
+            menuSelect('html');
+        })();
     </script>
 </html>
