@@ -7,15 +7,19 @@
         <title>面试知识汇总</title>
         <link rel="stylesheet" href="./main/main.css" />
     </head>
+
     <body>
         <div class="header">
             <div id="time" class="time"></div>
             <hr />
-            <div class="list">
-                <div onclick="menuSelect('html')" class="menu">html</div>
-                <div onclick="menuSelect('css')" class="menu">css</div>
-                <div onclick="menuSelect('js')" class="menu">js</div>
-            </div>
+            <ul id="menu" class="menu">
+                <li>html</li>
+                <li>css</li>
+                <li>js</li>
+                <li>vue</li>
+                <li>react</li>
+                <li>安全性</li>
+            </ul>
         </div>
         <div class="main">
             <div class="nav" id="nav"></div>
@@ -25,14 +29,30 @@
     </body>
     <script src=""></script>
     <script>
-        var time = document.getElementById('time');
-        time.innerText = new Date().toLocaleTimeString();
-        var showTime = setInterval(() => {
+        // 时间
+        function showTime(params) {
+            const time = document.getElementById('time');
             time.innerText = new Date().toLocaleTimeString();
-        }, 1000);
-        function menuSelect(tab) {
-            let selTab = document.getElementById(tab);
-            selTab.style.backgroundColor = '#999999';
+            const showTime = setInterval(() => {
+                time.innerText = new Date().toLocaleTimeString();
+            }, 1000);
         }
+
+        function menuSel() {
+            const menu = document.getElementById('menu');
+            // menu.
+            function clickfunc(ev) {
+                var ev = ev || window.event;
+                var oLi = ev.srcElement || ev.target;
+                if (oLi.nodeName.toLowerCase() == 'li') {
+                    alert(oLi.innerText);
+                }
+            }
+        }
+        // 初始化
+        function init() {
+            showTime();
+        }
+        init();
     </script>
 </html>
