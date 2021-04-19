@@ -40,18 +40,18 @@
 
         function menuSel() {
             const menu = document.getElementById('menu');
-            // menu.
-            function clickfunc(ev) {
+            menu.onclick = function (ev) {
                 var ev = ev || window.event;
-                var oLi = ev.srcElement || ev.target;
-                if (oLi.nodeName.toLowerCase() == 'li') {
-                    alert(oLi.innerText);
+                var target = ev.target || ev.srcElement;
+                if (target.nodeName.toLowerCase() == 'li') {
+                    alert(target.innerHTML);
                 }
-            }
+            };
         }
         // 初始化
         function init() {
             showTime();
+            menuSel();
         }
         init();
     </script>
