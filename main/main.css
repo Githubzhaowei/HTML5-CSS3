@@ -25,16 +25,16 @@ body {
     color: #ffffff;
 }
 
-.list {
+.menu {
     padding: 0 20px;
     display: flex;
     height: 60px;
-    width: 300px;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
-.menu {
-    width: 80px;
-    height: 100%;
+.menu li {
+    display: inline-block;
+    min-width: 50px;
+    padding: 0 10px;
     text-align: center;
     color: #ffffff;
     font-weight: 400;
@@ -42,7 +42,10 @@ body {
     line-height: 60px;
     text-align: center;
 }
-.menu:hover {
+.menu .active {
+    background-color: #999999;
+}
+.menu li:hover {
     background-color: #666666;
 }
 .menu.active {

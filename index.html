@@ -7,15 +7,19 @@
         <title>面试知识汇总</title>
         <link rel="stylesheet" href="./main/main.css" />
     </head>
+
     <body>
         <div class="header">
             <div id="time" class="time"></div>
             <hr />
-            <div class="list">
-                <div id="html" onclick="menuSelect('html')" class="menu">html</div>
-                <div id="css" onclick="menuSelect('css')" class="menu">css</div>
-                <div id="js" onclick="menuSelect('js')" class="menu">js</div>
-            </div>
+            <ul id="menu" class="menu">
+                <li>html</li>
+                <li>css</li>
+                <li>js</li>
+                <li>vue</li>
+                <li>react</li>
+                <li>安全性</li>
+            </ul>
         </div>
         <div class="main">
             <div class="nav" id="nav"></div>
@@ -25,17 +29,33 @@
     </body>
     <script src=""></script>
     <script>
-        var time = document.getElementById('time');
-        time.innerText = new Date().toLocaleTimeString();
-        var showTime = setInterval(() => {
+        // 时间
+        function showTime(params) {
+            const time = document.getElementById("time");
             time.innerText = new Date().toLocaleTimeString();
-        }, 1000);
-        function menuSelect(tab) {
-            let selTab = document.getElementById(tab);
-            selTab.classList.add('active');
+            const showTime = setInterval(() => {
+                time.innerText = new Date().toLocaleTimeString();
+            }, 1000);
         }
-        (function () {
-            menuSelect('html');
-        })();
+
+        function menuSel() {
+            const menu = document.getElementById("menu");
+            menu.onclick = function (ev) {
+                console.log(ev);
+                ev.pa;
+                var ev = ev || window.event;
+                var target = ev.target || ev.srcElement;
+                if (target.nodeName.toLowerCase() == "li") {
+                    target.classList.add("active");
+                    alert(target.innerHTML);
+                }
+            };
+        }
+        // 初始化
+        function init() {
+            showTime();
+            menuSel();
+        }
+        init();
     </script>
 </html>
