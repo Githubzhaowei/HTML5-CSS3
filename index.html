@@ -31,7 +31,7 @@
     <script>
         // 时间
         function showTime(params) {
-            const time = document.getElementById('time');
+            const time = document.getElementById("time");
             time.innerText = new Date().toLocaleTimeString();
             const showTime = setInterval(() => {
                 time.innerText = new Date().toLocaleTimeString();
@@ -39,11 +39,14 @@
         }
 
         function menuSel() {
-            const menu = document.getElementById('menu');
+            const menu = document.getElementById("menu");
             menu.onclick = function (ev) {
+                console.log(ev);
+                ev.pa;
                 var ev = ev || window.event;
                 var target = ev.target || ev.srcElement;
-                if (target.nodeName.toLowerCase() == 'li') {
+                if (target.nodeName.toLowerCase() == "li") {
+                    target.classList.add("active");
                     alert(target.innerHTML);
                 }
             };
