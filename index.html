@@ -41,16 +41,24 @@
         function menuSel() {
             const menu = document.getElementById("menu");
             menu.onclick = function (ev) {
-                console.log(ev);
-                ev.pa;
                 var ev = ev || window.event;
                 var target = ev.target || ev.srcElement;
+                sibling(target, "active");
                 if (target.nodeName.toLowerCase() == "li") {
                     target.classList.add("active");
-                    alert(target.innerHTML);
                 }
             };
         }
+
+        function sibling(e, key) {
+            var parent = e.parentNode;
+            for (let i = 0; i < parent.children.length; i++) {
+                if (parent.children[i].classList.contains(key)) {
+                    parent.children[i].classList.remove(key);
+                }
+            }
+        }
+
         // 初始化
         function init() {
             showTime();
