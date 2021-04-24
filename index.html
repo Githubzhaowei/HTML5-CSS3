@@ -27,43 +27,6 @@
         </div>
         <div class="footer"></div>
     </body>
-    <script src=""></script>
-    <script>
-        // 时间
-        function showTime(params) {
-            const time = document.getElementById("time");
-            time.innerText = new Date().toLocaleTimeString();
-            const showTime = setInterval(() => {
-                time.innerText = new Date().toLocaleTimeString();
-            }, 1000);
-        }
-
-        function menuSel() {
-            const menu = document.getElementById("menu");
-            menu.onclick = function (ev) {
-                var ev = ev || window.event;
-                var target = ev.target || ev.srcElement;
-                sibling(target, "active");
-                if (target.nodeName.toLowerCase() == "li") {
-                    target.classList.add("active");
-                }
-            };
-        }
-
-        function sibling(e, key) {
-            var parent = e.parentNode;
-            for (let i = 0; i < parent.children.length; i++) {
-                if (parent.children[i].classList.contains(key)) {
-                    parent.children[i].classList.remove(key);
-                }
-            }
-        }
-
-        // 初始化
-        function init() {
-            showTime();
-            menuSel();
-        }
-        init();
-    </script>
+    <script src="./main/main.js"></script>
+    <script></script>
 </html>
