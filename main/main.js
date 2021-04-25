@@ -1,6 +1,6 @@
 // 时间
 function showTime(params) {
-    const time = document.getElementById("time");
+    const time = document.getElementById('time');
     time.innerText = new Date().toLocaleTimeString();
     const showTime = setInterval(() => {
         time.innerText = new Date().toLocaleTimeString();
@@ -8,13 +8,14 @@ function showTime(params) {
 }
 
 function menuSel() {
-    const menu = document.getElementById("menu");
+    const menu = document.getElementById('menu');
     menu.onclick = function (ev) {
         var ev = ev || window.event;
         var target = ev.target || ev.srcElement;
-        sibling(target, "active");
-        if (target.nodeName.toLowerCase() == "li") {
-            target.classList.add("active");
+        sibling(target, 'active');
+        if (target.nodeName.toLowerCase() == 'li') {
+            target.classList.add('active');
+            showContent(target.innerText);
         }
     };
 }
@@ -27,6 +28,8 @@ function sibling(e, key) {
         }
     }
 }
+
+function showContent(target) {}
 
 // 初始化
 function init() {
