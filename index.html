@@ -27,35 +27,7 @@
         </div>
         <div class="footer"></div>
     </body>
-    <script src=""></script>
-    <script>
-        // 时间
-        function showTime(params) {
-            const time = document.getElementById("time");
-            time.innerText = new Date().toLocaleTimeString();
-            const showTime = setInterval(() => {
-                time.innerText = new Date().toLocaleTimeString();
-            }, 1000);
-        }
-
-        function menuSel() {
-            const menu = document.getElementById("menu");
-            menu.onclick = function (ev) {
-                console.log(ev);
-                ev.pa;
-                var ev = ev || window.event;
-                var target = ev.target || ev.srcElement;
-                if (target.nodeName.toLowerCase() == "li") {
-                    target.classList.add("active");
-                    alert(target.innerHTML);
-                }
-            };
-        }
-        // 初始化
-        function init() {
-            showTime();
-            menuSel();
-        }
-        init();
-    </script>
+    <script src="./main/learn/http.js"></script>
+    <script src="./main/main.js"></script>
+    <script></script>
 </html>
